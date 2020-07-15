@@ -1,6 +1,7 @@
 package com.idea.kt.model
 
 import com.idea.kt.model.dao.UserDao
+import org.bson.types.ObjectId
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -13,6 +14,14 @@ class UserService {
 
     fun addUser(user: User){
         userDao.insert(user)
+    }
+
+    fun modifyUser(_id: ObjectId,user: User){
+        userDao.update(_id, user)
+    }
+
+    fun deleteUser(_id: ObjectId){
+        userDao.delete(_id)
     }
 
 
