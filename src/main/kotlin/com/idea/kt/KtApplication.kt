@@ -1,11 +1,11 @@
 package com.idea.kt
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
 import org.springframework.boot.runApplication
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories
 
-@SpringBootApplication
-@EnableMongoRepositories
+@SpringBootApplication(exclude = arrayOf(MongoAutoConfiguration::class,MongoDataAutoConfiguration::class))
 class KtApplication
 
 fun main(args: Array<String>) {
